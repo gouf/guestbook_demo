@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guest Book</title>
+  <script src="https://fb.me/react-0.13.2.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.2.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/front.js" type="text/jsx"></script>
+  <script src="/public/socket.io_client.js"></script>
+  <style>
+.example-enter {
+  opacity: 0.01;
+    transition: opacity .5s ease-in;
+}
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+.example-leav {
+  opacity: 1;
+    transition: opacity .5s ease-in;
+}
+.example-leave.example-leave-active {
+  opacity: 0.01;
+}
+  </style>
+</head>
+<body>
+  <div id="guestbook"></div>
+</body>
+</html>
