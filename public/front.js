@@ -7,13 +7,14 @@ var GuestBook = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div className="container">
         <h1>Guest Book</h1>
-        <MessageForm/>
-        <div style={{'maxWidth': '270px'}}>
-          <hr/>
+        <div className="col-sm-12">
+          <MessageForm/>
         </div>
-        <MessageList/>
+        <div>
+          <MessageList/>
+        </div>
       </div>
     );
   }
@@ -41,7 +42,7 @@ var MessageList = React.createClass({
     var rightIndex = this.state.messages.length;
 
     return (
-      <div className="messagelist">
+      <div className="messagelist col-sm-6">
         {this.state.messages.slice(leftIndex, rightIndex)
           .reverse()
           .map(function (element, i) {
@@ -73,15 +74,23 @@ var MessageForm = React.createClass({
   },
   render: function () {
     return (
-      <form className="messageForm" onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input id="name" name="name" type="text" ref="name"/>
-        <br/>
-        <label htmlFor="message">Message:</label>
-        <input id="message" name="message" type="text" ref="message"/>
-        <br/>
-        <input type="submit" value="leave message"/>
-      </form>
+      <div className="panel panel-default col-sm-6">
+        <div className="panel-body">
+          <form className="messageForm" onSubmit={this.handleSubmit}>
+            <div className="form-group col-sm-8">
+              <label className="col-sm-2 control-label" htmlFor="name">Name</label>
+              <input className="form-control" id="name" name="name" type="text" ref="name"/>
+            </div>
+            <div className="form-group col-sm-8">
+              <label className="col-sm-2 control-label" htmlFor="message">Message</label>
+              <input className="form-control" id="message" name="message" type="text" ref="message"/>
+            </div>
+            <div className="form-group col-sm-8">
+              <input className="btn btn-primary" type="submit" value="leave message"/>
+            </div>
+          </form>
+        </div>
+      </div>
     )
   }
 });
@@ -90,10 +99,7 @@ var Message = React.createClass({
   render: function () {
     return (
       <div className="message">
-        <ul>
-          <li>Name:  {this.props.name}</li>
-          <li>Message: {this.props.message}</li>
-        </ul>
+        <p>{this.props.name} : {this.props.message}</p>
       </div>
     );
   }
